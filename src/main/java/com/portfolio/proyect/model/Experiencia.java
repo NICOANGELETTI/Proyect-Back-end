@@ -24,12 +24,15 @@ public class Experiencia {
           
     private String empresa;
 
-    public Experiencia(int id, String puesto, String inicio, String fin, String empresa) {
-        this.id = id;
+    public Experiencia(String puesto, String inicio, String fin, String empresa) {
+       
         this.puesto = puesto;
         this.inicio = inicio;
         this.fin = fin;
         this.empresa = empresa;
+    }
+
+    public Experiencia() {
     }
 
     

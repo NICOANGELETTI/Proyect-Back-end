@@ -1,7 +1,7 @@
 
 package com.portfolio.proyect.controller;
 
-import com.portfolio.proyect.model.Persona;
+
 import com.portfolio.proyect.model.Proyecto;
 import com.portfolio.proyect.service.ProyectoService;
 import java.util.List;
@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
-@RequestMapping("proyecto") //Localhost:8080/persona
+@RequestMapping("proyecto") //Localhost:8080/proyecto
 @CrossOrigin(origins = "http://localhost:4200")
 public class CProyecto {
      @Autowired
@@ -32,13 +35,17 @@ public class CProyecto {
     
     //Consultar la lista de proyectos , nos devuelve los proyectos que cargamos en formato json desde -->Body-->raw
     
-    @GetMapping("/lista_proyectos")
-    @ResponseBody
-    public List<Proyecto> getAllProyectos() {
-        return proyectServ.traerProyectos();
+    @GetMapping("lista")
+    @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
+    public ResponseEntity<List<Proyecto>> traerProyectos(){
+        List<Proyecto> traerProyectos = proyectServ.traerProyectos();
+        return new ResponseEntity(traerProyectos, HttpStatus.OK);
     
-   
 }
+       
+   
+
+      
     //Busqueda por ID
     /*@GetMapping("/traer_proyecto/{id}")
     public ResponseEntity<Proyecto> getProyectoById(@PathVariable("id") int id) {
@@ -53,7 +60,7 @@ public class CProyecto {
     
 
     
-       @PostMapping("/crear/proyecto")
+       @PostMapping("/nuevo/proyecto")
        @ResponseBody
       public void guardarProyecto(@RequestBody Proyecto proyecto){
           proyectServ.guardarProyecto(proyecto);
@@ -62,13 +69,32 @@ public class CProyecto {
        
        
        
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/proyecto/{id}")
     public void deleteProyecto(@PathVariable("id") int id) {
         proyectServ.eliminarProyecto(id);
     }
 
-    }
-   
     
+   
+    @PutMapping("update/{id}")
+    public Proyecto editarProyecto(@PathVariable int id,
+            @RequestParam("urlImagen") String nuevoUrlImagen ,
+            @RequestParam("titulo") String nuevoTitulo ,
+            @RequestParam("descripcion") String nuevaDescripcion ,
+            @RequestParam("urlProyect") String nuevoUrlProyect)
+           
+            
+            {
+        Proyecto proy = proyectServ.buscarProyecto(id);
+        
+        proy.setUrlImagen(nuevoUrlImagen);
+        proy.setTitulo(nuevoTitulo);
+        proy.setDescripcion(nuevaDescripcion);
+        proy.setUrlProyect(nuevoUrlProyect);
+     
+         proyectServ.guardarProyecto(proy);
+         
+       return proy;
+    } 
 
-
+}

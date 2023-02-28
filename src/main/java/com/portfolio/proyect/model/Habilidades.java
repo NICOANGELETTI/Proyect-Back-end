@@ -20,10 +20,13 @@ public class Habilidades {
     
     private int porcentaje;
 
-    public Habilidades(int id, String habilidad, int porcentaje) {
-        this.id = id;
+    public Habilidades(String habilidad, int porcentaje) {
+      
         this.habilidad = habilidad;
         this.porcentaje = porcentaje;
+    }
+
+    public Habilidades() {
     }
     
       

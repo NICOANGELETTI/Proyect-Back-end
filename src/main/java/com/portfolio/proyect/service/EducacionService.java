@@ -4,10 +4,15 @@ package com.portfolio.proyect.service;
 
 import com.portfolio.proyect.model.Educacion;
 import com.portfolio.proyect.repository.IEducacionRepository;
-import jakarta.transaction.Transactional;
+
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 @Transactional
@@ -19,7 +24,7 @@ public class EducacionService  {
     
   
     
-    public List<Educacion> verEstudios() {
+    public List<Educacion> list() {
         return estuRepo.findAll();
     }
     
@@ -36,9 +41,30 @@ public class EducacionService  {
     
     public Educacion buscarEstudio(Integer id) {
         return estuRepo.findById(id).orElse(null);           
-    }            
-
+    }      
+    
+         public Educacion buscarEducacion(int id) {
+        Educacion edu =  estuRepo.findById(id).orElse(null);
+        return edu;
+    }
+ 
+   public void editarEducacion(Educacion edu){
+        estuRepo.save(edu);  
+   }
+       /*public boolean existsByName(String edu){
+         return estuRepo.existsByName(edu);
+     }
+       
+         public Optional<Educacion> getByName(String edu){
+         return estuRepo.findByName(edu);
+     }
+         
+             public boolean existById(int id){
+        return estuRepo.existsById(id);
+    }*/
+        public Optional<Educacion> getOne(int id){
+        return estuRepo.findById(id);
+    }
    
-    
-    
-}
+    }
+

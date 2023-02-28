@@ -8,6 +8,7 @@ import com.portfolio.proyect.repository.IHabilidadesRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,7 +34,13 @@ public class HabilidadesService {
     public void eliminarHabilidad (int id) {
         habRepo.deleteById(id);
     }
-   
-    
+    public Habilidades buscarHabilidades(int id) {
+        Habilidades hab =  habRepo.findById(id).orElse(null);
+        return hab;
+    }
+         public void editarHabilidad(Habilidades hab){
+        habRepo.save(hab);  
+   }
+
     
 }

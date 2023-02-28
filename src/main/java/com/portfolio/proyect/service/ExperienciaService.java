@@ -2,12 +2,19 @@ package com.portfolio.proyect.service;
 
 
 
+import com.portfolio.proyect.model.Educacion;
 import com.portfolio.proyect.model.Experiencia;
-import com.portfolio.proyect.model.Persona;
 import com.portfolio.proyect.repository.IExperienciaRepository;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@Service
+@Transactional
 public class ExperienciaService {
     @Autowired
     public IExperienciaRepository expeRepo;  
@@ -23,9 +30,15 @@ public class ExperienciaService {
         expeRepo.deleteById(id);
     }
  
-    public Experiencia buscarExperiencia(Integer id) {
-        return expeRepo.findById(id).orElse(null);           
-    }                
+           
+        
+      public Experiencia buscarExperiencia(int id) {
+        Experiencia exp =  expeRepo.findById(id).orElse(null);
+        return exp;
+    }
+         public void editarExperiencia(Experiencia exp){
+        expeRepo.save(exp);  
+   }
 }
     
 

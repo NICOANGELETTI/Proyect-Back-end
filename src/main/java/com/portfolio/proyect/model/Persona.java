@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
+@Table
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Autoincrementales
@@ -20,20 +22,27 @@ public class Persona {
     
     private String apellido;
     
+    private String tituloDeveloper;
+     
+    private String url_imagenperfil;
+    
     private int edad;
     
-    @Lob
+    
+   
     private String acercade;
     public Persona() {
     }
 
-    
-    public Persona(String nombre, String apellido, int edad) {
-       
+    public Persona( String nombre, String apellido, String tituloDeveloper, String url_imagenperfil, int edad, String acercade) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.tituloDeveloper = tituloDeveloper;
+        this.url_imagenperfil = url_imagenperfil;
         this.edad = edad;
+        this.acercade = acercade;
     }
+
 
 
 }

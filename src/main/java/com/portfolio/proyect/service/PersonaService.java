@@ -4,12 +4,12 @@ package com.portfolio.proyect.service;
 
 import com.portfolio.proyect.model.Persona;
 import com.portfolio.proyect.repository.IPersonaRepository;
+
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.transaction.Transactional;
 
 
 //Esta clase tendra la implementacion de todos los metodos declarados en PersonaService.java
@@ -21,6 +21,9 @@ public class PersonaService {
     @Autowired
     public IPersonaRepository persoRepo; 
     
+    //Implemento metodo Login
+    
+   
     
     
     //Implementamos todos los metodos de IPersonaService. Implementamos la logica aqui 
@@ -33,7 +36,7 @@ public class PersonaService {
 
     
     public void crearPersona(Persona per) {
-        //Save-->Busca el id del objeto en base a eso lo modifica o lo crea
+      
         persoRepo.save(per);
     }
     
@@ -51,4 +54,8 @@ public class PersonaService {
     public  Persona buscarPersona(Long id) {
         return persoRepo.findById(id).orElse(null);
     }*/
+
+    public Persona loginPersona(String email, String clave) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 } 

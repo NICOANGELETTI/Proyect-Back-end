@@ -1,13 +1,13 @@
 
 package com.portfolio.proyect.controller;
 
-import com.portfolio.proyect.model.Habilidades;
-import com.portfolio.proyect.model.Persona;
-import com.portfolio.proyect.service.HabilidadesService;
 
+import com.portfolio.proyect.model.Habilidades;
+import com.portfolio.proyect.service.HabilidadesService;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,25 +16,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @RestController
-@RequestMapping("habilidadeds") //Localhost:8080/persona
+@RequestMapping("habilidades") //Localhost:8080/persona
 @CrossOrigin(origins = "http://localhost:4200")
 public class CHabilidades {
      @Autowired
        //Implementamos interfaz
       public HabilidadesService habServ;
  
-      @GetMapping("/traer_habilidades")
+           @GetMapping("/lista")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
-    public List<Habilidades> traerHabilidades() {
-        return habServ.traerHabilidades();
+    public ResponseEntity<List<Habilidades>> traerHabilidades() {
+        List<Habilidades> traerHabilidades = habServ.traerHabilidades();
+        return new ResponseEntity(traerHabilidades, HttpStatus.OK);
     
 }
+  
    
-       /*   @GetMapping("/traer_habilidadesPorID")
+      /* @GetMapping("/buscar/habilidad/{id}")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
     public Optional<Habilidades> traerHabilidadPorId(@PathVariable int id) {
         return habServ.traerHabilidadPorId(id);
@@ -46,12 +51,26 @@ public class CHabilidades {
     public void guardarHabilidad(@RequestBody Habilidades habilidad) {
             habServ.guardarHabilidad(habilidad);
     }
-    @DeleteMapping ("/delete_habilidad/{id}")
+    @DeleteMapping ("/delete/habilidad/{id}")
     public void eliminarHabilidad(@PathVariable int id) {
         habServ.eliminarHabilidad(id);
     }
     
-    
+     @PutMapping("update/{id}")
+    public Habilidades editarHabilidad(@PathVariable int id,
+            @RequestParam("habilidad") String nuevaHabilidad ,
+            @RequestParam("porcentaje") int nuevoPorcentaje)
+       
+            
+            {
+        Habilidades hab = habServ.buscarHabilidades(id);
+        
+        hab.setHabilidad(nuevaHabilidad);
+        hab.setPorcentaje(nuevoPorcentaje);
+        habServ.guardarHabilidad(hab);
+         
+       return hab;
+    }
 
     }       
 
