@@ -5,60 +5,28 @@ Portfolio Web Nicolas Angeletti
 
 ## Development server
 
-Selecting "Project Application" and placing run file. We will activate the tomcat and start running our project linking with our mysql database.
+Seleccionando "Aplicación de proyecto" y colocando el archivo de ejecución. 
+Activaremos el tomcat y comenzaremos a ejecutar nuestro proyecto enlazando con nuestra base de datos mysql.
 
 ## Facility
-In my Backend I use.. 
-Spring boot version 3.0.0
-Java SE 17
+En mi Backend uso .. Spring boot versión 3.0.0 Java SE 17
 
-Dependencys..
--lombok 
--Spring Boot DevTools 
--Spring WEB
--MySQL DRIVER
--Spring JPA
--jsonwebtoken 0.9.1
--Apache 3.12.0
--Spring validation
+Dependencias.. -lombok -Spring Boot DevTools -Spring WEB -MySQL DRIVER -Spring JPA -jsonwebtoken 0.9.1 -Apache 3.12.0 -Spring validación
 
+-Dentro de la carpeta ".com.portfolio.project.security" podemos ver todos los archivos correspondientes al backend en el token web json para iniciar sesión en la cartera.
 
--Inside of ".com.portfolio.project.security" folder we can see
-all files corresponding to the backend on json web token
-for portfolio login.
+-Dentro de ".com.portfolio.project.controller" podemos visualizar todos los archivos de controlador de las diferentes secciones de mi portafolio donde se pretende realizar solicitudes http. CEducación CExperiencia Habilidades Cpersona CProyecto
 
--Inside of ".com.portfolio.project.controller"
-we can visualize all the controller files of
-the different sections of my portfolio where it is intended to carry out
-http requests.
-CEducation
-CExperience
-Skills
-Cperson
-CProject
+-Dentro de ".com.portfolio.project.model" Aquí encontramos todos los modelos de entidades de las secciones anteriores. Con sus respectivas declaraciones, constructores y métodos getter y setter.
 
--Inside of ".com.portfolio.project.model"
-Here we find all the entity models
-on the previous sections.
-With their respective declarations, constructors and methods
-getter and setter.
+-Dentro de ".com.portfolio.project.repository" Aquí encontramos los repositorios de todas las secciones nombradas anteriormente
 
--Inside of ".com.portfolio.project.repository"
-Here we find the repositories of all the named sections
-previously
-
--Inside of ".com.portfolio.proyect.service"
-Here we can see all the methods which we later incorporate
-in the controller of each section to be able to make the requests later
-corresponding. We have methods to add, delete, edit,
-search by name, search by id, etc.
+-Dentro de ".com.portfolio.proyect.service" Aquí podemos ver todos los métodos que luego incorporamos en el controlador de cada sección para poder realizar las solicitudes posteriores correspondientes. Tenemos métodos para agregar, borrar, editar, buscar por nombre, buscar por id, etc.
 
 ## RoadMap
-In the near future I would like to improve on the "good practices" of coding. 
-I would also like to improve my logical performance when it comes to Backend development
+En un futuro próximo me gustaría mejorar las "buenas prácticas" de codificación. 
+También me gustaría mejorar mi rendimiento lógico cuando se trata de desarrollo de Backend
 
 ## Contributing
-Open to contributions of all kinds. taking into account that it is a project carried out only by me.
-Taking into account that it is my first experience with the planning, elaboration and development of a real web development project
-and you may have things to improve in your code and functions.
+Abierto a contribuciones de todo tipo. teniendo en cuenta que es un proyecto realizado solo por mi. Teniendo en cuenta que es mi primera experiencia con la planificación, elaboración y desarrollo de un proyecto de desarrollo web real y puede que tengas cosas que mejorar en tu código y funciones.
 
