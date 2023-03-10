@@ -13,6 +13,7 @@ import lombok.Setter;
 
 @Entity
 @Table
+
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Autoincrementales

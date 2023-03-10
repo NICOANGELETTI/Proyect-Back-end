@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+FROM amazoncorretto:19
+MAINTAINER NicolasAngeletti
+COPY target\proyect-0.0.1-SNAPSHOT.jar proyect-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/proyect-0.0.1-SNAPSHOT.jar"]
+=======
 #!/bin/sh
 # ----------------------------------------------------------------------------
 # Licensed to the Apache Software Foundation (ASF) under one
@@ -314,3 +320,4 @@ exec "$JAVACMD" \
   "-Dmaven.home=${M2_HOME}" \
   "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
   ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"
+>>>>>>> refs/remotes/origin/master

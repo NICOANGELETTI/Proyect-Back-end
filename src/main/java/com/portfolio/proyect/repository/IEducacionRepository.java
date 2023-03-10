@@ -10,9 +10,19 @@ import org.springframework.stereotype.Repository;
 @Repository
                 //Implementamos una Interfaz que se encarga de extender de JpaRepository y nos da todos los metodos propios de JPA
 public interface IEducacionRepository extends JpaRepository <Educacion, Integer>{
+
+    
                                                           //Heredamos persona y Long es el tipo de dato del ID
+<<<<<<< HEAD
+    /*public Optional<Educacion> findByName(String edu);*/
+    /*public boolean existsByName(String edu);*/
+
+
+}
+=======
     public Optional findById(Long id);
   /*public boolean existsByName(String edu);
         public Optional findByName(String edu);*/ 
     
 }
+>>>>>>> refs/remotes/origin/master

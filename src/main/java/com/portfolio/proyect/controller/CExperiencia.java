@@ -59,7 +59,11 @@ public class CExperiencia {
     //}
    
 
+<<<<<<< HEAD
+   /* @PutMapping("update/{id}")
+=======
     @PutMapping("update/{id}")
+>>>>>>> refs/remotes/origin/master
     public Experiencia editarExperiencia(@PathVariable int id,
             @RequestParam("puesto") String nuevoPuesto ,
             @RequestParam("inicio") String nuevoInicio ,
@@ -78,7 +82,11 @@ public class CExperiencia {
          expeServ.crearExperiencia(exp);
          
        return exp;
+<<<<<<< HEAD
+    } */
+=======
     } 
+>>>>>>> refs/remotes/origin/master
 
 
 }
