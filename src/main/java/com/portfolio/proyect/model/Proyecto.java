@@ -24,12 +24,14 @@ public class Proyecto {
     
     private String urlProyect; 
 
-    public Proyecto(int id, String urlImagen, String titulo, String descripcion, String urlProyect) {
-        this.id = id;
-        this.urlImagen = urlImagen;
+    public Proyecto(String urlImagen, String titulo, String descripcion, String urlProyect) {
+         this.urlImagen = urlImagen;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.urlProyect = urlProyect;
+    }
+
+    public Proyecto() {
     }
     
     
