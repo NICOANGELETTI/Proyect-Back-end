@@ -32,10 +32,17 @@ public class ExperienciaService {
  
            
         
+<<<<<<< HEAD
      /* public Experiencia buscarExperiencia(int id) {
         Experiencia exp =  expeRepo.findById(id).orElse(null);
         return exp;
     }*/
+=======
+      public Experiencia buscarExperiencia(int id) {
+        Experiencia exp =  expeRepo.findById(id).orElse(null);
+        return exp;
+    }
+>>>>>>> refs/remotes/origin/master
          public void editarExperiencia(Experiencia exp){
         expeRepo.save(exp);  
    }

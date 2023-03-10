@@ -1,12 +1,18 @@
 
 package com.portfolio.proyect.controller;
 
+<<<<<<< HEAD
 import com.portfolio.proyect.Security.Controller.Mensaje;
+=======
+>>>>>>> refs/remotes/origin/master
 import com.portfolio.proyect.Security.Message;
 import com.portfolio.proyect.model.Educacion;
 import com.portfolio.proyect.service.EducacionService;
 import io.micrometer.common.util.StringUtils;
+<<<<<<< HEAD
 import static java.lang.System.console;
+=======
+>>>>>>> refs/remotes/origin/master
 import java.util.List;
 
 
@@ -21,7 +27,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestParam;
+=======
+>>>>>>> refs/remotes/origin/master
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -59,6 +68,7 @@ public class CEducacion {
     public Educacion buscarEstudio(@PathVariable Integer id){
         return eduServ.buscarEstudio(id);
     }
+<<<<<<< HEAD
 */
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
@@ -80,6 +90,21 @@ public class CEducacion {
             return new ResponseEntity(new Message("ID inexistente"), HttpStatus.NOT_FOUND);
         
          
+=======
+    
+  
+    
+   
+
+     /*@PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Educacion edu){
+        if(!eduServ.existById(id))
+            return new ResponseEntity(new Message("ID inexistente"), HttpStatus.BAD_REQUEST);
+        
+        if(eduServ.existsByName(edu.getTitulo()) && eduServ.getByName(edu.getTitulo()).get().getId() != id)
+            return new ResponseEntity(new Message(" educacion existente"), HttpStatus.BAD_REQUEST);
+        
+>>>>>>> refs/remotes/origin/master
         if(StringUtils.isBlank(edu.getTitulo()))
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         
@@ -91,6 +116,7 @@ public class CEducacion {
         educacion.setInstitucion(edu.getInstitucion());
         
         eduServ.crearEstudio(educacion);
+<<<<<<< HEAD
         return new ResponseEntity(new Message("Educacion actualizada con éxito"), HttpStatus.OK);
     }*/
     
@@ -116,4 +142,9 @@ public class CEducacion {
 }
 }
 
+=======
+        return new ResponseEntity(new Message("Experiencia actualizada con éxito"), HttpStatus.OK);
+    }*/ 
+}
+>>>>>>> refs/remotes/origin/master
 
