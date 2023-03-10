@@ -16,6 +16,7 @@ Dependencias.. -lombok -Spring Boot DevTools -Spring WEB -MySQL DRIVER -Spring J
 -Dentro de la carpeta ".com.portfolio.project.security" podemos ver todos los archivos correspondientes al backend en el token web json para iniciar sesión en la cartera.
 
 -Dentro de ".com.portfolio.project.controller" podemos visualizar todos los archivos de controlador de las diferentes secciones de mi portafolio donde se pretende realizar solicitudes http. CEducación CExperiencia Habilidades Cpersona CProyecto
+Aqui tenemos metodo @PutMapping , @GetMapping , @PostMapping,@DeleteMapping Para realizar las diferentes peticiones de agregar informacion ,borrar,traer,informacion.
 
 -Dentro de ".com.portfolio.project.model" Aquí encontramos todos los modelos de entidades de las secciones anteriores. Con sus respectivas declaraciones, constructores y métodos getter y setter.
 
