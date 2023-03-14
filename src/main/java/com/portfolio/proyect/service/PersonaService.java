@@ -49,12 +49,16 @@ public class PersonaService {
     public void editarPersona(Persona per){
         persoRepo.
     }
- /*
+ 
     @Override
     public  Persona buscarPersona(Long id) {
         return persoRepo.findById(id).orElse(null);
     }*/
-
+public Persona buscarPersona(int id) {
+        Persona per =  persoRepo.findById(id).orElse(null);
+        return per;
+    
+}
     public Persona loginPersona(String email, String clave) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

@@ -27,16 +27,16 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class CProyecto {
      @Autowired
-       //Implementamos interfaz
+       
       public ProyectoService proyectServ;
 
      
  
     
-    //Consultar la lista de proyectos , nos devuelve los proyectos que cargamos en formato json desde -->Body-->raw
     
+    //Traigo Lista con metodo GET
     @GetMapping("lista")
-    @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
+    @ResponseBody 
     public ResponseEntity<List<Proyecto>> traerProyectos(){
         List<Proyecto> traerProyectos = proyectServ.traerProyectos();
         return new ResponseEntity(traerProyectos, HttpStatus.OK);
@@ -59,7 +59,7 @@ public class CProyecto {
        
     
 
-    
+    //Creo con metodo POST
        @PostMapping("/nuevo/proyecto")
        @ResponseBody
       public void guardarProyecto(@RequestBody Proyecto proyecto){
@@ -68,14 +68,14 @@ public class CProyecto {
        
        
        
-       
+       //Borro con metodo DELETE
     @DeleteMapping("/delete/proyecto/{id}")
     public void deleteProyecto(@PathVariable("id") int id) {
         proyectServ.eliminarProyecto(id);
     }
 
     
-   
+   //Actualizo con metodo PUT
     @PutMapping("update/{id}")
     public Proyecto editarProyecto(@PathVariable int id,
             @RequestParam("urlImagen") String nuevoUrlImagen ,

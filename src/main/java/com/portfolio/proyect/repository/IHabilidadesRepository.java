@@ -4,7 +4,7 @@ package com.portfolio.proyect.repository;
 
 
 import com.portfolio.proyect.model.Habilidades;
-import com.portfolio.proyect.model.Persona;
+
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

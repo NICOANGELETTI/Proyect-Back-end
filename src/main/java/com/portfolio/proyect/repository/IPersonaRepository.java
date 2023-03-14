@@ -3,8 +3,10 @@ package com.portfolio.proyect.repository;
 
 
 
+
 import com.portfolio.proyect.model.Persona;
-import java.util.List;
+
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +15,8 @@ import org.springframework.stereotype.Repository;
 public interface IPersonaRepository extends JpaRepository <Persona, Integer>{
                                                           //Heredamos persona y Long es el tipo de dato del ID
     
-    public Object findById(int id);
-
+ 
+public Optional<Persona> findById(Long id);
   
 
     public void deleteById(int id);

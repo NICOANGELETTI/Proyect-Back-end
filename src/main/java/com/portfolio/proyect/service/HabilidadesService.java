@@ -3,10 +3,10 @@ package com.portfolio.proyect.service;
 
 
 import com.portfolio.proyect.model.Habilidades;
-import com.portfolio.proyect.model.Persona;
+
 import com.portfolio.proyect.repository.IHabilidadesRepository;
 import java.util.List;
-import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;

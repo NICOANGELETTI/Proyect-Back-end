@@ -32,14 +32,14 @@ public class CExperiencia {
  
    
        
-    //Crear Experiencia y guardarla
+    //Creo y guardo mediente POST
     @PostMapping ("/nueva/experiencia")
     public void crearExperiencia(@RequestBody Experiencia pers) {
             expeServ.crearExperiencia(pers);
     
     }
     
-    //Mostrar Lista de Personas
+    //Llamo la lista con GET
     @GetMapping("lista")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
     public ResponseEntity<List<Experiencia>> verExperiencias() {
@@ -47,7 +47,7 @@ public class CExperiencia {
         return new ResponseEntity(verExperiencias, HttpStatus.OK);
     
 }
-    //Borrar Experiencia
+    //Borro con Delete
     @DeleteMapping ("delete/experiencia/{id}")
     public void eliminarExperiencia(@PathVariable int id) {
         expeServ.eliminarExperiencia(id);
@@ -58,7 +58,7 @@ public class CExperiencia {
     //    return expeServ.buscarExperiencia(id);
     //}
    
-
+    //Actualizo con metodo PUT por id
     @PutMapping("update/{id}")
     public Experiencia editarExperiencia(@PathVariable int id,
             @RequestParam("puesto") String nuevoPuesto ,

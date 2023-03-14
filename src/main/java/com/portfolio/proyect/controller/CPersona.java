@@ -7,14 +7,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,19 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class CPersona {
      @Autowired
-       //Implementamos interfaz
+       
       public PersonaService persoServ;
  
  
-  //@PreAuthorize("hasRole('ADMIN)")
+  //Creo con metodo POST
     @PostMapping ("/nueva/personas")
     @ResponseBody
     public void create(@RequestBody Persona pers) {
             persoServ.crearPersona(pers);
     }
     
-    //Consultar la lista de personas , nos devuelve las personas que cargamos en formato json desde -->Body-->raw
-    
+   
+    //Traigo lista con metodo GET
     @GetMapping("lista")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
         public ResponseEntity<List<Persona>> verPersonas() {
@@ -44,13 +46,34 @@ public class CPersona {
     
 }
       
-    //@PreAuthorize("hasRole('ADMIN)")
+    //Borro con metodo DELETE
     @DeleteMapping ("/delete/persona/{id}")
     public void borrarPersona(@PathVariable int id) {
         persoServ.borrarPersona(id);
     }
-   
     
+   //Actualizo con metodo PUT
+    @PutMapping("update/{id}")
+    public Persona editarPersona(@PathVariable int id,
+            @RequestParam("nombre") String nuevoNombre ,
+            @RequestParam("apellido") String nuevoApellido ,
+            @RequestParam("tituloDeveloper") String nuevoTitulo ,
+            @RequestParam("url_imagenperfil") String nuevoUrl,
+            @RequestParam("edad") int nuevaEdad)
+           
+            
+            {
+        Persona persona = persoServ.buscarPersona(id);
+        
+        persona.setNombre(nuevoNombre);
+        persona.setApellido(nuevoApellido);
+        persona.setTituloDeveloper(nuevoTitulo);
+        persona.setUrl_imagenperfil(nuevoUrl);
+        persona.setEdad(nuevaEdad);
+         persoServ.crearPersona(persona);
+         
+       return persona;
+    } 
     }
 
 

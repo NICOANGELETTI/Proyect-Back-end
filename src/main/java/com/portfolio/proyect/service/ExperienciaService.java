@@ -2,7 +2,7 @@ package com.portfolio.proyect.service;
 
 
 
-import com.portfolio.proyect.model.Educacion;
+
 import com.portfolio.proyect.model.Experiencia;
 import com.portfolio.proyect.repository.IExperienciaRepository;
 
