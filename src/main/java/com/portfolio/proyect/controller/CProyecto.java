@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("proyecto") //Localhost:8080/proyecto
-@CrossOrigin(origins = {"https://proyect-back-end.onrender.com"})
+@CrossOrigin(origins = {"https://portfolio-frontend-nico.web.app/proyecto"})
 public class CProyecto {
      @Autowired
        
