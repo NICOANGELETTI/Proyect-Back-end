@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("educacion") //Localhost:8080/educacion
-@CrossOrigin(origins = {"https://portfolio-frontend-nico.web.app/educacion"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
      @Autowired //Implementamos interfaz
 
@@ -61,7 +61,7 @@ public class CEducacion {
     }
     
         //Actualizo por ID
-      @PutMapping("/update/{id}")
+      @PutMapping("update/{id}")
     public Educacion editarEducacion(@PathVariable int id,
             @RequestParam("titulo") String nuevoTitulo ,
             @RequestParam("institucion") String nuevaInstitucion ,

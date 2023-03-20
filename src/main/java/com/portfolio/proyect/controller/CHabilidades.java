@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("habilidades") //Localhost:8080/persona
-@CrossOrigin(origins = {"https://portfolio-frontend-nico.web.app/habilidades"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class CHabilidades {
      @Autowired
     
@@ -59,7 +59,7 @@ public class CHabilidades {
         habServ.eliminarHabilidad(id);
     }
     //Actualizo con metodo PUT
-     @PutMapping("/update/{id}")
+     @PutMapping("update/{id}")
     public Habilidades editarHabilidad(@PathVariable int id,
             @RequestParam("habilidad") String nuevaHabilidad ,
             @RequestParam("porcentaje") int nuevoPorcentaje)
