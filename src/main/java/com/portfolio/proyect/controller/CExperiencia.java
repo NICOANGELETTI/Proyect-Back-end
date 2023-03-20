@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("experiencia") //Localhost:8080/persona
-@CrossOrigin(origins = {"https://proyect-back-end.onrender.com"})
+@CrossOrigin(origins = "https://proyect-back-end.onrender.com")
 public class CExperiencia {
     //Implementamos interfaz 
     @Autowired
@@ -40,7 +40,7 @@ public class CExperiencia {
     }
     
     //Llamo la lista con GET
-    @GetMapping("lista")
+    @GetMapping("/lista")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
     public ResponseEntity<List<Experiencia>> verExperiencias() {
         List<Experiencia> verExperiencias = expeServ.verExperiencias();
@@ -48,7 +48,7 @@ public class CExperiencia {
     
 }
     //Borro con Delete
-    @DeleteMapping ("delete/experiencia/{id}")
+    @DeleteMapping ("/delete/experiencia/{id}")
     public void eliminarExperiencia(@PathVariable int id) {
         expeServ.eliminarExperiencia(id);
     }
@@ -59,7 +59,7 @@ public class CExperiencia {
     //}
    
     //Actualizo con metodo PUT por id
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public Experiencia editarExperiencia(@PathVariable int id,
             @RequestParam("puesto") String nuevoPuesto ,
             @RequestParam("inicio") String nuevoInicio ,

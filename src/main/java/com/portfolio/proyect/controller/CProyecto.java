@@ -35,7 +35,7 @@ public class CProyecto {
     
     
     //Traigo Lista con metodo GET
-    @GetMapping("lista")
+    @GetMapping("/lista")
     @ResponseBody 
     public ResponseEntity<List<Proyecto>> traerProyectos(){
         List<Proyecto> traerProyectos = proyectServ.traerProyectos();
@@ -76,7 +76,7 @@ public class CProyecto {
 
     
    //Actualizo con metodo PUT
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public Proyecto editarProyecto(@PathVariable int id,
             @RequestParam("urlImagen") String nuevoUrlImagen ,
             @RequestParam("titulo") String nuevoTitulo ,

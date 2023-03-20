@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("persona") //Localhost:8080/persona
-@CrossOrigin(origins = {"https://proyect-back-end.onrender.com"})
+@CrossOrigin(origins = "https://proyect-back-end.onrender.com")
 public class CPersona {
      @Autowired
        
@@ -38,7 +38,7 @@ public class CPersona {
     
    
     //Traigo lista con metodo GET
-    @GetMapping("lista")
+    @GetMapping("/lista")
     @ResponseBody //Lo que devuelve la funcion la devuelve en el cuerpo de la respuesta (@ResponseBody)
         public ResponseEntity<List<Persona>> verPersonas() {
              List<Persona> verPersonas = persoServ.verPersonas();
@@ -53,7 +53,7 @@ public class CPersona {
     }
     
    //Actualizo con metodo PUT
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public Persona editarPersona(@PathVariable int id,
             @RequestParam("nombre") String nuevoNombre ,
             @RequestParam("apellido") String nuevoApellido ,
