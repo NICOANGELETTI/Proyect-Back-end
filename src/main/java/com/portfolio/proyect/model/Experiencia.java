@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table
+
 public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Autoincrementales
