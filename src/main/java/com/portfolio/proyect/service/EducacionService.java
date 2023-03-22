@@ -57,11 +57,11 @@ public class EducacionService  {
        
          public Optional<Educacion> getByName(String edu){
          return estuRepo.findByName(edu);
-     }
+     }*/
          
-             public boolean existById(int id){
+             public boolean existsById(int id){
         return estuRepo.existsById(id);
-    }*/
+    }
         public Optional<Educacion> getOne(int id){
         return estuRepo.findById(id);
     }

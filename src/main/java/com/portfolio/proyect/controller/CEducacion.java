@@ -2,6 +2,7 @@
 package com.portfolio.proyect.controller;
 
 
+import com.portfolio.proyect.Security.Controller.Mensaje;
 import com.portfolio.proyect.model.Educacion;
 
 import com.portfolio.proyect.service.EducacionService;
@@ -84,5 +85,13 @@ public class CEducacion {
          
        return edu;
     } 
-
+   @GetMapping("/detail/{id}")
+    public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
+        if(!eduServ.existsById(id)){
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
+        }
+        
+        Educacion educacion = eduServ.getOne(id).get();
+        return new ResponseEntity(educacion, HttpStatus.OK);
+    }
 }
