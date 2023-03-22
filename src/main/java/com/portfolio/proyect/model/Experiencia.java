@@ -23,9 +23,11 @@ public class Experiencia {
     private String fin;
           
     private String empresa;
+    
+    private String url_imagen;
 
-    public Experiencia(String puesto, String inicio, String fin, String empresa) {
-       
+    public Experiencia(String puesto, String inicio, String fin, String empresa,String url_imagen) {
+        this.url_imagen = url_imagen;
         this.puesto = puesto;
         this.inicio = inicio;
         this.fin = fin;
