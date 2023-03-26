@@ -84,7 +84,7 @@ public class CEducacion {
          eduServ.crearEstudio(edu);
          
        return edu;
-    } 
+            }
    @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
         if(!eduServ.existsById(id)){
